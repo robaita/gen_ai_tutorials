@@ -37,6 +37,6 @@ Whether you're a researcher, engineer, or enthusiast, this training plan provide
 | Lecture Name | Topic Covered |
 |--------------|---------------|
 | Lecture-1 | History of AI, Paradigm Shifts in AI, AI vs ML vs DL, Generative AI, Reinforcement Learning and Autonomous Agents |
-| Lecture-2 | Zero shot, Few Shot, Chain of Thought, Tree of Thought, LLM as Judge |
+| Lecture-2 | Evolution of Language Models, Prompt Engineering: Zero shot, Few Shot, Chain of Thought, Chan of Thought, Multi Turn Prompting, Role Play |
 | Lecture-3 | Neuron architecture (input, weights, bias, output), Forward propagation in MLP, Multi-layer structure (hidden layers), Weight initialization |
 
