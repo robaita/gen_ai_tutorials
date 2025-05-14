@@ -39,18 +39,4 @@ Whether you're a researcher, engineer, or enthusiast, this training plan provide
 | Lecture-1 | History of AI, Paradigm Shifts in AI, AI vs ML vs DL, Generative AI, Reinforcement Learning and Autonomous Agents |
 | Lecture-2 | Zero shot, Few Shot, Chain of Thought, Tree of Thought, LLM as Judge |
 | Lecture-3 | Neuron architecture (input, weights, bias, output), Forward propagation in MLP, Multi-layer structure (hidden layers), Weight initialization |
-| Lecture-4 | Chain rule for gradients, Error function (loss), Gradient flow across layers, Optimization: SGD, Adam, etc |
-| Lecture-5 | RNN architecture and sequential data, Time-step unrolling, Gradient flow in RNNs, Layer Normalization vs Batch Normalization |
-| Lecture-6 | Attention Mechanism, Self-Attention, Cross Attention |
-| Lecture-7 | Data Collection and Preprocessing, Tokenization and Vocabulary Creation, Model Architecture and Configuration, Pretraining Objectives, Fine-Tuning and Alignment Techniques |
-| Lecture-8 | Text-Image Fusion, Vision-Language Models, Multimodal Prompting |
-| Lecture-9 | Latent Diffusion, Denoising Score Matching, Forward and Reverse Process |
-| Lecture-10 | Understanding Component Pipelines, Orchestrating LLMs with Tools/Agents, Security, Guardrails & Privacy |
-| Lecture-11 | Limitation of Traditional RAG |
-| Lecture-12 | Entity linking and node mapping, Graph construction from documents, Path-based context retrieval, Integration with knowledge graphs |
-| Lecture-13 | Dynamic header generation, Embedding-aware section titles, Enhancing retrieval relevance |
-| Lecture-14 | Summarization-based token reduction, Importance-aware trimming, LLM-assisted compression |
-| Lecture-15 | Data formatting and tokenization, Instruction tuning basics, When and why to finetune |
-| Lecture-16 | Weight precision reduction (e.g., INT8), Trade-off: speed vs accuracy, Hardware-aware optimizations |
-| Lecture-17 | Comparison between Langgraph, Crew AI, LlamaIndex, Smal Agent, Auto Gen |
-| Lecture-18 | Build your A2A |
+
