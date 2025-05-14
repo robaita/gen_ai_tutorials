@@ -1,0 +1,17 @@
+# Ignore all .log files
+*.log
+
+# Ignore the 'build' directory
+build/
+
+# Ignore the 'tmp' directory
+tmp/
+
+# Ignore all files in the 'references' directory
+references/
+
+# Ignore a specific file
+Lecture -1 - Introduction to AI and its History.pptx
+Lecture -2 -LLM, Eveluation Metrics and Prompt Engineering.pptx
+Lecture-3 Artificial Neural Network.pptx
+Generative AI Training Proposal.xlsx
