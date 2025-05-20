@@ -40,3 +40,7 @@ Whether you're a researcher, engineer, or enthusiast, this training plan provide
 | Lecture-2 | Evolution of Language Models, Prompt Engineering: Zero shot, Few Shot, Chain of Thought, Chan of Thought, Multi Turn Prompting, Role Play |
 | Lecture-3 | Neuron architecture (input, weights, bias, output), Forward propagation in MLP, Multi-layer structure (hidden layers), Weight initialization |
 
+
+# Generative AI Training
+[document](https://docs.google.com/document/d/1aB6RvGd7HrOd29R-oE2GDyTEuVBFMNy_EMlwyfSHRGg/edit?usp=sharing)
+
