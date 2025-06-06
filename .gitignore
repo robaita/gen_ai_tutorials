@@ -1,18 +1,16 @@
 # Ignore all .log files
-*.log
+*.txt
+
 
 # Ignore the 'lecture-11/code' directory
+code/lecture-11/Faiss_db/
+code/lecture-11/chroma_db/
 code/lecture-11/data/key.txt
-code/lecture-11/data/chroma_db
-code/lecture-11/data/Faiss_db
-
-# Ignore the 'tmp' directory
-tmp/
 
 # Ignore all files in the 'references' directory
 references/
 
-# Ignore a specific file
+# Ignore a presentations specific file
 Lecture -1 - Introduction to AI and its History.pptx
 Lecture -2 -LLM, Eveluation Metrics and Prompt Engineering.pptx
 Lecture-3 Artificial Neural Network.pptx
