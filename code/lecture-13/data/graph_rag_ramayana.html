@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 1000px;
+                 height: 900px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "INTRODUCTION", "label": "INTRODUCTION", "shape": "dot"}, {"color": "#97c2fc", "id": "THE BIRTH OF RAMA", "label": "THE BIRTH OF RAMA", "shape": "dot"}, {"color": "#97c2fc", "id": "THE VALIANT PRINCES", "label": "THE VALIANT PRINCES", "shape": "dot"}, {"color": "#97c2fc", "id": "SITA\u0027S SWAYAMVAR", "label": "SITA\u0027S SWAYAMVAR", "shape": "dot"}, {"color": "#97c2fc", "id": "KAIKEYI AND HER WISHES", "label": "KAIKEYI AND HER WISHES", "shape": "dot"}, {"color": "#97c2fc", "id": "THE DEMONS IN THE FORESTS", "label": "THE DEMONS IN THE FORESTS", "shape": "dot"}, {"color": "#97c2fc", "id": "THE KIDNAPPING OF SITA", "label": "THE KIDNAPPING OF SITA", "shape": "dot"}, {"color": "#97c2fc", "id": "RAMA SEARCHES FOR SITA", "label": "RAMA SEARCHES FOR SITA", "shape": "dot"}, {"color": "#97c2fc", "id": "THE LAND OF THE MONKEYS", "label": "THE LAND OF THE MONKEYS", "shape": "dot"}, {"color": "#97c2fc", "id": "HANUMAN MEETS SITA - LANKA IS DESTROYED", "label": "HANUMAN MEETS SITA - LANKA IS DESTROYED", "shape": "dot"}, {"color": "#97c2fc", "id": "THE WAR", "label": "THE WAR", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"from": "INTRODUCTION", "label": "Sita- Lanka", "title": "Sita- Lanka", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "THE BIRTH OF RAMA", "label": "Shatrugna, Sarayu...", "title": "Shatrugna, Sarayu...", "to": "THE VALIANT PRINCES"}, {"from": "THE BIRTH OF RAMA", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "SITA\u0027S SWAYAMVAR"}, {"from": "THE BIRTH OF RAMA", "label": "Kaushalya, Shatrugna...", "title": "Kaushalya, Shatrugna...", "to": "KAIKEYI AND HER WISHES"}, {"from": "THE BIRTH OF RAMA", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "THE DEMONS IN THE FORESTS"}, {"from": "THE BIRTH OF RAMA", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "THE KIDNAPPING OF SITA"}, {"from": "THE BIRTH OF RAMA", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "RAMA SEARCHES FOR SITA"}, {"from": "THE BIRTH OF RAMA", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "THE LAND OF THE MONKEYS"}, {"from": "THE BIRTH OF RAMA", "label": "Kaushalya, Rama...", "title": "Kaushalya, Rama...", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "THE BIRTH OF RAMA", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "THE WAR"}, {"from": "THE VALIANT PRINCES", "label": "Shatrugna, Dasharatha...", "title": "Shatrugna, Dasharatha...", "to": "SITA\u0027S SWAYAMVAR"}, {"from": "THE VALIANT PRINCES", "label": "Bharatha, Shatrugna...", "title": "Bharatha, Shatrugna...", "to": "KAIKEYI AND HER WISHES"}, {"from": "THE VALIANT PRINCES", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "THE DEMONS IN THE FORESTS"}, {"from": "THE VALIANT PRINCES", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "THE KIDNAPPING OF SITA"}, {"from": "THE VALIANT PRINCES", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "RAMA SEARCHES FOR SITA"}, {"from": "THE VALIANT PRINCES", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "THE LAND OF THE MONKEYS"}, {"from": "THE VALIANT PRINCES", "label": "Rama, Lanka...", "title": "Rama, Lanka...", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "THE VALIANT PRINCES", "label": "Sri \nRama, Rama...", "title": "Sri \nRama, Rama...", "to": "THE WAR"}, {"from": "SITA\u0027S SWAYAMVAR", "label": "Shatrugna, Dasharatha...", "title": "Shatrugna, Dasharatha...", "to": "KAIKEYI AND HER WISHES"}, {"from": "SITA\u0027S SWAYAMVAR", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "THE DEMONS IN THE FORESTS"}, {"from": "SITA\u0027S SWAYAMVAR", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "THE KIDNAPPING OF SITA"}, {"from": "SITA\u0027S SWAYAMVAR", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "RAMA SEARCHES FOR SITA"}, {"from": "SITA\u0027S SWAYAMVAR", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "THE LAND OF THE MONKEYS"}, {"from": "SITA\u0027S SWAYAMVAR", "label": "Rama, Shatrugna", "title": "Rama, Shatrugna", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "SITA\u0027S SWAYAMVAR", "label": "Shatrugna, Vashishta...", "title": "Shatrugna, Vashishta...", "to": "THE WAR"}, {"from": "KAIKEYI AND HER WISHES", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "THE DEMONS IN THE FORESTS"}, {"from": "KAIKEYI AND HER WISHES", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "THE KIDNAPPING OF SITA"}, {"from": "KAIKEYI AND HER WISHES", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "RAMA SEARCHES FOR SITA"}, {"from": "KAIKEYI AND HER WISHES", "label": "Lakshmana, Rama", "title": "Lakshmana, Rama", "to": "THE LAND OF THE MONKEYS"}, {"from": "KAIKEYI AND HER WISHES", "label": "Kaushalya, Rama...", "title": "Kaushalya, Rama...", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "KAIKEYI AND HER WISHES", "label": "Bharatha, Shatrugna...", "title": "Bharatha, Shatrugna...", "to": "THE WAR"}, {"from": "THE DEMONS IN THE FORESTS", "label": "Sita, Lanka...", "title": "Sita, Lanka...", "to": "THE KIDNAPPING OF SITA"}, {"from": "THE DEMONS IN THE FORESTS", "label": "Panchavati, Rakshasa...", "title": "Panchavati, Rakshasa...", "to": "RAMA SEARCHES FOR SITA"}, {"from": "THE DEMONS IN THE FORESTS", "label": "Lanka, Rakshasa...", "title": "Lanka, Rakshasa...", "to": "THE LAND OF THE MONKEYS"}, {"from": "THE DEMONS IN THE FORESTS", "label": "Rama, Sita...", "title": "Rama, Sita...", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "THE DEMONS IN THE FORESTS", "label": "Viman, Lanka...", "title": "Viman, Lanka...", "to": "THE WAR"}, {"from": "THE KIDNAPPING OF SITA", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "RAMA SEARCHES FOR SITA"}, {"from": "THE KIDNAPPING OF SITA", "label": "Lanka, Lakshmana...", "title": "Lanka, Lakshmana...", "to": "THE LAND OF THE MONKEYS"}, {"from": "THE KIDNAPPING OF SITA", "label": "Rama, Sita...", "title": "Rama, Sita...", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "THE KIDNAPPING OF SITA", "label": "Lakshmana, Rama...", "title": "Lakshmana, Rama...", "to": "THE WAR"}, {"from": "RAMA SEARCHES FOR SITA", "label": "Vanara, Jatayu\u2019s...", "title": "Vanara, Jatayu\u2019s...", "to": "THE LAND OF THE MONKEYS"}, {"from": "RAMA SEARCHES FOR SITA", "label": "Vanara, Sugriva...", "title": "Vanara, Sugriva...", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "RAMA SEARCHES FOR SITA", "label": "Vanara, Rakshasa...", "title": "Vanara, Rakshasa...", "to": "THE WAR"}, {"from": "THE LAND OF THE MONKEYS", "label": "Lanka, Vanara...", "title": "Lanka, Vanara...", "to": "HANUMAN MEETS SITA - LANKA IS DESTROYED"}, {"from": "THE LAND OF THE MONKEYS", "label": "Lanka, Vanara...", "title": "Lanka, Vanara...", "to": "THE WAR"}, {"from": "HANUMAN MEETS SITA - LANKA IS DESTROYED", "label": "Rama, Lanka...", "title": "Rama, Lanka...", "to": "THE WAR"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"size": 24}, "size": 30}, "edges": {"font": {"size": 18, "align": "middle"}, "color": {"inherit": true}, "smooth": false}, "physics": {"enabled": true, "barnesHut": {"gravitationalConstant": -30000, "centralGravity": 0.3, "springLength": 250, "springConstant": 0.04, "damping": 0.09, "avoidOverlap": 1}, "minVelocity": 0.75}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
