@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "arguments": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:\\Robaita\\workshops\\Aifa Labs\\gen_ai_tutorials\\code\\lecture-15"
+      ]
+    }
+  }
+}
